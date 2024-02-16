@@ -1,0 +1,26 @@
+sever :
+  port: 7777
+
+spring:
+  application:
+    name: authTest
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/auth_test
+    username: springstudent
+    password: springstudent
+    api:
+      security:
+        token:
+          secret: ${JWT_SECRET:my-secret-key}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    dialect: org.hibernate.dialect.MySQLDialect
+
+  flyway:
+    url: jdbc:mysql://127.0.0.1:3306
+    schemas: auth_test
+    user: springstudent
+    password: springstudent
